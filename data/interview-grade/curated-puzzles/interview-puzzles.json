@@ -1,0 +1,722 @@
+[
+  {
+    "id": "fermi_001",
+    "type": "fermi",
+    "title": "Piano Tuners in Chicago",
+    "question": "Estimate the number of piano tuners working in Chicago.\n\nThis is a classic McKinsey & Company interview question designed to test your ability to break an ambiguous problem into solvable components using back-of-envelope reasoning.\n\nChicago has a population of approximately 2.7 million people. Think through the following chain:\n- How many households are in Chicago?\n- What fraction of households own a piano?\n- How often does a piano need tuning?\n- How many pianos can one tuner service per day, per year?\n- Therefore, how many tuners are needed to service all pianos?\n\nBe explicit about every assumption you make. Your answer should be a single integer — your best estimate of the total number of piano tuners currently working in Chicago.",
+    "answer": "125",
+    "acceptableRange": [50, 300],
+    "difficulty": 3,
+    "hints": [
+      "Start with households: ~2.7M people divided by 2.5 people/household is approximately 1.08M households.",
+      "Roughly 1 in 20 households owns a piano (5%), giving ~54,000 pianos. Each needs tuning ~1x per year.",
+      "A tuner works ~250 days/year, services ~4 pianos/day = 1,000 pianos/year. So 54,000 divided by 1,000 is approximately 54 tuners — but add restaurants, schools, concert halls to reach ~100-150."
+    ],
+    "skills": ["estimation", "decomposition", "dimensional_analysis"]
+  },
+  {
+    "id": "fermi_002",
+    "type": "fermi",
+    "title": "Golf Balls in a School Bus",
+    "question": "How many golf balls fit inside a standard school bus?\n\nThis is a famous Google software engineering interview question. It tests spatial reasoning and comfort with order-of-magnitude approximations.\n\nA standard US school bus (Type C) is approximately 35 feet long, 7.5 feet wide, and 6 feet tall interior. A golf ball has a diameter of 1.68 inches.\n\nKey considerations:\n- What is the interior volume of the bus (subtracting seats, wheel wells, etc.)?\n- What is the volume of a single golf ball?\n- What packing efficiency applies when randomly filling a container with spheres?\n- Random packing of spheres achieves roughly 64% space efficiency.\n\nProvide a single integer as your final answer.",
+    "answer": "500000",
+    "acceptableRange": [300000, 800000],
+    "difficulty": 3,
+    "hints": [
+      "Bus interior volume: ~35ft x 7.5ft x 6ft = 1,575 ft cubed. Subtract ~20% for seats/structure, giving ~1,260 ft cubed usable.",
+      "Golf ball volume: diameter 1.68in = 0.14ft, radius = 0.07ft. Volume = (4/3)pi(0.07)^3 approximately 0.00144 ft cubed.",
+      "Packing efficiency ~64%: balls occupy 64% of space. Count = (1,260 x 0.64) / 0.00144 is approximately 560,000."
+    ],
+    "skills": ["spatial_reasoning", "estimation", "geometry", "dimensional_analysis"]
+  },
+  {
+    "id": "fermi_003",
+    "type": "fermi",
+    "title": "Gas Stations in the United States",
+    "question": "Estimate the total number of gas stations currently operating in the United States.\n\nThis question appears frequently in McKinsey, BCG, and Bain case interviews. It tests your ability to build a demand-side model.\n\nThe US population is approximately 330 million people. Consider:\n- How many registered vehicles are there in the US?\n- How often does a typical car need to fill up?\n- How many cars can a single gas station serve per day?\n- How many pumps does a typical station have, and what is pump utilization?\n\nAlternatively, approach from supply: consider the US land area and the density of gas stations in urban vs. rural areas.\n\nYour answer should be a single integer.",
+    "answer": "145000",
+    "acceptableRange": [100000, 200000],
+    "difficulty": 3,
+    "hints": [
+      "Demand side: ~280M registered vehicles, each fills up ~1.5x/week. That is 420M fill-ups/week = 60M/day.",
+      "A typical station has ~8 pumps, each serving ~20 cars/hour during 16 active hours = ~2,560 cars/day per station.",
+      "60M fill-ups/day divided by 2,560/station is approximately 23,000 — but that is peak. Accounting for off-peak, a station averages ~400 fill-ups/day: 60M divided by 400 is approximately 150,000 stations."
+    ],
+    "skills": ["estimation", "decomposition", "supply_demand_modeling"]
+  },
+  {
+    "id": "fermi_004",
+    "type": "fermi",
+    "title": "Weight of a Fully Loaded Boeing 747",
+    "question": "Estimate the maximum takeoff weight of a fully loaded Boeing 747-400, in pounds.\n\nThis question tests your ability to build estimates from physical reasoning and common knowledge.\n\nConsider all major weight components:\n1. The empty aircraft structure (airframe, engines, avionics)\n2. Fuel — the 747 has a very long range and carries an enormous fuel load\n3. Passengers — a 747-400 seats approximately 416 passengers in typical configuration\n4. Passenger luggage and cargo\n5. Crew and their equipment\n\nNote: Jet fuel weighs approximately 6.7 pounds per gallon. The 747-400 has a range of about 8,000 miles.\n\nProvide your answer as a single integer number of pounds.",
+    "answer": "875000",
+    "acceptableRange": [700000, 1000000],
+    "difficulty": 4,
+    "hints": [
+      "Empty operating weight of a 747-400 is roughly 400,000 lbs (the airframe, engines, crew equipment).",
+      "Fuel: 747 burns ~5 gallons/mile, range 8,000 miles, giving 40,000 gallons x 6.7 lb/gal = approximately 268,000 lbs of fuel.",
+      "Payload: 416 passengers x 200 lbs average (person + luggage) = approximately 83,200 lbs. Total: 400K + 268K + 83K = approximately 751,000 lbs. MTOW is ~875,000 lbs."
+    ],
+    "skills": ["estimation", "physics_reasoning", "dimensional_analysis"]
+  },
+  {
+    "id": "fermi_005",
+    "type": "fermi",
+    "title": "Hours of Video Uploaded to YouTube Per Day",
+    "question": "Estimate the total number of hours of video that are uploaded to YouTube every single day.\n\nThis is a product estimation question asked at Google and YouTube product management interviews.\n\nApproach this from either the supply side (how many creators upload, how often, how long are their videos) or the demand side (YouTube has ~2 billion monthly active users; what fraction create content, and at what rate?).\n\nConsider:\n- How many YouTube channels exist that upload regularly?\n- What is the typical upload frequency and video length for different creator tiers (hobbyists vs. semi-pro vs. professional)?\n- What is the long tail distribution of creator activity?\n\nYour answer should be a single integer representing hours of video per day.",
+    "answer": "500000",
+    "acceptableRange": [250000, 1000000],
+    "difficulty": 3,
+    "hints": [
+      "YouTube has ~800M videos total and ~37M channels. Roughly 15M channels upload at least monthly.",
+      "Average upload frequency: ~2 videos/week per active channel. Average video length: ~8 minutes = 0.133 hours.",
+      "15M channels x (2/7 uploads/day) x 0.133 hours = approximately 570,000 hours/day. YouTube officially stated 500 hours/minute in 2022 = 720,000 hours/day."
+    ],
+    "skills": ["estimation", "product_thinking", "decomposition"]
+  },
+  {
+    "id": "fermi_006",
+    "type": "fermi",
+    "title": "Daily Revenue of a Times Square McDonald's",
+    "question": "Estimate the daily revenue of a McDonald's restaurant in Times Square, New York City.\n\nThis is a market sizing question asked in BCG and McKinsey case interviews. Times Square is one of the highest foot-traffic locations in the world, with approximately 50 million visitors per year.\n\nConsider:\n- How many people pass through Times Square per day?\n- What fraction of them enter a fast-food restaurant?\n- What fraction of those entering actually buy something?\n- What is the average ticket size at McDonald's?\n- Does the Times Square location likely command a premium, or are prices similar to standard locations?\n- How does this vary by time of day (breakfast, lunch, dinner, late night)?\n\nAnswer as a single integer number of dollars.",
+    "answer": "75000",
+    "acceptableRange": [40000, 150000],
+    "difficulty": 4,
+    "hints": [
+      "Times Square sees ~330,000 people/day (50M/year divided by 365). Of those, maybe 3% choose McDonald's specifically, giving ~10,000 potential customers.",
+      "Not all who pass enter — maybe 60% actually buy = 6,000 transactions. Average McDonald's ticket is ~$9.",
+      "6,000 transactions x $9 = $54,000. Add premium foot traffic and late-night crowd: estimate $60,000 to $90,000/day."
+    ],
+    "skills": ["estimation", "market_sizing", "unit_economics"]
+  },
+  {
+    "id": "fermi_007",
+    "type": "fermi",
+    "title": "Diapers Sold in the US Per Year",
+    "question": "Estimate the total number of disposable diapers sold in the United States per year.\n\nThis is a consumer goods market sizing question from P&G and CPG company interviews.\n\nConsider:\n- The US birth rate is approximately 3.6 million births per year\n- A typical child uses diapers from birth until potty training\n- Potty training typically completes between ages 2.5 and 3\n- How many diapers does an infant use per day at various ages?\n- Are there other diaper users beyond infants (adult incontinence products)?\n\nYour answer should be a single integer representing the total number of diapers (all sizes, all brands) sold per year.",
+    "answer": "27000000000",
+    "acceptableRange": [20000000000, 40000000000],
+    "difficulty": 3,
+    "hints": [
+      "Children in diapers: ~3.6M births/year x 2.75 years average diapering = roughly 9.9M diaper-age children at any time.",
+      "Average diaper usage: ~8/day for newborns, ~5/day for toddlers. Blended average is approximately 6 diapers/day.",
+      "9.9M children x 6 diapers/day x 365 days = ~21.7 billion. Add ~20% for adult incontinence segment = approximately 26 billion total."
+    ],
+    "skills": ["estimation", "market_sizing", "consumer_goods"]
+  },
+  {
+    "id": "fermi_008",
+    "type": "fermi",
+    "title": "Taxi Rides Taken in New York City Per Day",
+    "question": "Estimate the number of taxi and rideshare trips taken in New York City on an average weekday.\n\nThis is an operations and logistics estimation question frequently asked at Uber, Lyft, and management consulting firms.\n\nNew York City has a population of approximately 8.3 million people, plus roughly 300,000 daily commuters and millions of tourists.\n\nConsider:\n- What fraction of New Yorkers take a taxi or rideshare on any given day (vs. subway, bus, walking, or driving)?\n- What is the average trip duration and distance?\n- How does demand vary by borough (Manhattan vs. outer boroughs)?\n- What are the peak hours and how does that affect total daily volume?\n- Include both traditional yellow cabs, green cabs, and rideshare apps (Uber, Lyft, Via).\n\nAnswer as a single integer.",
+    "answer": "800000",
+    "acceptableRange": [500000, 1500000],
+    "difficulty": 4,
+    "hints": [
+      "NYC TLC data: yellow cabs do ~350,000 trips/day; green cabs ~40,000/day; FHV (Uber/Lyft/Via) ~700,000+/day.",
+      "From scratch: 8.3M residents, assume 5% take a cab/rideshare daily = 415,000 resident trips. Add tourists (~300K/day in NYC) with higher taxi usage = additional 150,000 trips.",
+      "Total resident + tourist + business trips = approximately 700,000-900,000/day. Official TLC data (2019) showed ~1.1M total for-hire trips/day."
+    ],
+    "skills": ["estimation", "operations", "urban_planning"]
+  },
+  {
+    "id": "fermi_009",
+    "type": "fermi",
+    "title": "Weight of All Blood in a Human Body",
+    "question": "Estimate the total weight of blood in the human body, in pounds.\n\nThis medical physiology estimation question tests your ability to combine biological knowledge with dimensional reasoning. It has appeared in both medical school interviews and quantitative finance analyst interviews.\n\nConsider:\n- The average adult human weighs approximately 154 lbs (70 kg)\n- Blood is mostly water, with red blood cells, white blood cells, platelets, and plasma\n- What fraction of body weight is blood?\n- Alternatively: estimate the total blood volume in liters, then convert using the density of blood (approximately 1.06 kg/L, slightly denser than water)\n\nAnswer as a single number in pounds.",
+    "answer": "12",
+    "acceptableRange": [9, 15],
+    "difficulty": 3,
+    "hints": [
+      "Blood is approximately 7-8% of body weight. For a 154-lb (70 kg) person: 70 x 0.075 = 5.25 kg of blood.",
+      "Alternatively, blood volume: adults have ~70 mL/kg of body weight = 70 x 70 = 4,900 mL = approximately 5 liters.",
+      "5 liters x 1.06 kg/L = 5.3 kg = approximately 11.7 lbs. Rounding to 12 lbs is the standard answer."
+    ],
+    "skills": ["estimation", "biology", "dimensional_analysis"]
+  },
+  {
+    "id": "fermi_010",
+    "type": "fermi",
+    "title": "Number of Red Cars in California",
+    "question": "Estimate the number of red-colored passenger cars currently registered in California.\n\nThis is a market research estimation question used in data science and consulting interviews.\n\nCalifornia is the most populous US state with approximately 39 million residents. Consider:\n- How many registered passenger vehicles are there in California?\n- What fraction of cars are red? (Think about the popularity of various car colors — white, black, silver/gray, red, blue, other.)\n- Does California's demographics or culture skew color preferences compared to national averages?\n- Industry data: white is the most popular color globally (~35%), followed by black (~20%), silver/gray (~20%), red (~10%), blue (~10%), other (~5%).\n\nProvide a single integer.",
+    "answer": "3000000",
+    "acceptableRange": [2000000, 5000000],
+    "difficulty": 3,
+    "hints": [
+      "California registered vehicles: ~30 million total vehicles (all types). Passenger cars specifically: ~26 million.",
+      "Red is typically ~10% of the car color distribution (slightly less popular than white/black/silver).",
+      "26M passenger cars x 10% red = approximately 2.6 million. California's car culture (sports cars, muscle cars) may skew slightly higher, giving approximately 3 million."
+    ],
+    "skills": ["estimation", "market_research", "statistical_reasoning"]
+  },
+  {
+    "id": "opt_001",
+    "type": "optimization",
+    "title": "The 100 Prisoners Problem",
+    "question": "One hundred prisoners are each assigned a unique number from 1 to 100. The warden places slips bearing these numbers — one slip per box — into 100 boxes in a room, arranged in a 10x10 grid. Each prisoner must enter the room alone, open at most 50 boxes, and then leave. Prisoners may not communicate after the process begins, nor leave any marks or signals. If every prisoner finds their own number, all go free. If even one prisoner fails, all are executed.\n\nWith a purely random strategy (each prisoner opens 50 random boxes), the probability all 100 succeed is (1/2)^100 — essentially zero.\n\nHowever, there exists a strategy that gives the prisoners a success probability of approximately 31.2% — an astronomically better outcome.\n\nDescribe the optimal strategy precisely. Explain why it works, and compute (or closely approximate) the exact success probability.\n\nHint: The strategy exploits a deep property of permutations. Each arrangement of slips in boxes defines a permutation on the set {1,...,100}. Think about what mathematical structure within that permutation a prisoner can follow.",
+    "answer": "The loop-following strategy: prisoner i opens box i first, then follows the chain (box i contains number j, then open box j, etc.). This succeeds if and only if the permutation has no cycle of length greater than 50. The probability of this is 1 - ln(2) approximately 31.18%.",
+    "acceptableRange": null,
+    "difficulty": 5,
+    "hints": [
+      "Each slip arrangement is a permutation where box k contains slip p(k). Prisoner i succeeds if they can reach i by following the chain starting at box i within 50 steps.",
+      "Prisoner i following the loop strategy traces exactly the cycle of the permutation that contains i. They succeed if and only if that cycle has length 50 or less.",
+      "All prisoners succeed if and only if no cycle in the permutation has length greater than 50. The probability a random permutation of 100 has no cycle of length greater than 50 equals 1 minus ln(2), approximately 0.3118."
+    ],
+    "skills": ["combinatorics", "probability", "permutation_theory", "graph_theory", "systematic_reasoning"]
+  },
+  {
+    "id": "opt_002",
+    "type": "optimization",
+    "title": "12 Coins and a Balance Scale",
+    "question": "You have 12 coins that appear identical. Exactly one coin is counterfeit and differs in weight from the other 11 genuine coins — but you do not know whether the counterfeit is heavier or lighter.\n\nYou have a balance scale (not a spring scale) and may use it exactly 3 times.\n\nDesign a strategy that is guaranteed to:\n1. Identify which coin is counterfeit, and\n2. Determine whether it is heavier or lighter than a genuine coin.\n\nYour strategy must work for all possible cases — it cannot rely on luck. Describe the complete decision tree: what to weigh in each step, and what conclusion to draw based on each possible outcome (left heavy, right heavy, or balanced).\n\nNote: Each weighing has 3 possible outcomes. Three weighings give 27 possible outcome sequences, and you need to distinguish 24 cases (12 coins times 2 possible faults), so it is information-theoretically feasible.",
+    "answer": "Weigh 4 vs 4 first. If balanced, the odd coin is among the remaining 4 and two more weighings suffice to identify it and whether it is heavy or light. If unbalanced, the 8 coins on the scale are suspects (4 possibly-heavy, 4 possibly-light); a carefully designed second weighing narrows to 3 cases, and the third weighing resolves the identity and direction.",
+    "acceptableRange": null,
+    "difficulty": 5,
+    "hints": [
+      "Label coins 1 through 12. Weighing 1: put coins 1,2,3,4 on the left and 5,6,7,8 on the right; set 9,10,11,12 aside.",
+      "Case A (balanced): the fake is among 9,10,11,12. Weigh 9,10,11 vs 1,2,3 (known genuine). If balanced, coin 12 is fake. If left heavy, one of 9,10,11 is heavy. If left light, one is light.",
+      "Case B (left heavy): either 1-4 is heavy or 5-8 is light. Weighing 2: put 1,2,5 on left and 3,6,9 on right (9 is genuine). This constrains the problem to 3 or fewer suspects for the final weighing."
+    ],
+    "skills": ["logic", "decision_trees", "information_theory", "constraint_satisfaction"]
+  },
+  {
+    "id": "opt_003",
+    "type": "optimization",
+    "title": "25 Horses, 5 Race Tracks — Find the Top 3",
+    "question": "You have 25 horses and a race track that can hold exactly 5 horses at a time. You want to determine the three fastest horses overall. You have no stopwatch — the only information you get from each race is the relative finishing order of the 5 horses in that race.\n\nAll horses run at a perfectly consistent speed — if horse A beats horse B in one race, A will always beat B.\n\nWhat is the minimum number of races needed to determine with certainty the 1st, 2nd, and 3rd fastest horses?\n\nYou must prove your answer is optimal — i.e., explain why the task cannot be accomplished in fewer races.\n\nThis is one of the most famous puzzles asked in Google and Microsoft technical interviews.",
+    "answer": "7 races minimum. 5 initial races to rank each group of 5, then 1 race of the 5 group-winners to determine the overall fastest. Then 1 final race among the top candidates for 2nd and 3rd place.",
+    "acceptableRange": null,
+    "difficulty": 4,
+    "hints": [
+      "First, race 5 groups of 5 horses (5 races). Each group yields a ranked order. Call the winners A1, B1, C1, D1, E1 and rank groups by their winners in race 6.",
+      "Race 6: race A1, B1, C1, D1, E1. The horse that wins race 6 is the overall fastest. Horses D1 and E1 (4th and 5th in race 6) cannot be in the top 3 — eliminate them and all horses that lost to them.",
+      "For 2nd and 3rd: candidates are A2, A3 (lost only to A1), B1 (lost only to A1 in race 6), B2 (lost only to B1), and C1 (3rd in race 6). That is exactly 5 horses. Race them in race 7. 1st place is 2nd overall, 2nd place is 3rd overall."
+    ],
+    "skills": ["algorithm_design", "optimization", "tournament_theory", "combinatorics"]
+  },
+  {
+    "id": "opt_004",
+    "type": "optimization",
+    "title": "Two Eggs and a 100-Floor Building",
+    "question": "You are given two identical eggs and access to a 100-story building. Your task is to find the highest floor from which you can drop an egg without it breaking (the critical floor F). If dropped from any floor above F, the egg breaks. If dropped from F or below, it does not break.\n\nAssumptions:\n- Both eggs are identical and have the same critical floor.\n- If an egg does not break, you can reuse it.\n- If an egg breaks, it is gone.\n- An egg that survives a fall can be dropped again from a higher floor.\n\nWhat is the minimum number of drops needed in the worst case to guarantee you can identify the exact critical floor for any possible value of F from 0 to 100?\n\nDescribe your optimal strategy completely. This is a classic dynamic programming problem frequently asked at Goldman Sachs and Two Sigma.",
+    "answer": "14 drops in the worst case. Use a strategy where the first egg is dropped at decreasing intervals: floors 14, 27, 39, 50, 60, 69, 77, 84, 90, 95, 99, 100. If the first egg breaks at floor k, use the second egg to linearly search from the previous checkpoint.",
+    "acceptableRange": null,
+    "difficulty": 4,
+    "hints": [
+      "Key insight: with 2 eggs and n drops total, you can check at most n + (n-1) + (n-2) + ... + 1 = n(n+1)/2 floors. Solve n(n+1)/2 >= 100: n=14 gives 105 >= 100.",
+      "The optimal strategy drops the first egg at floor n, then n+(n-1), then n+(n-1)+(n-2), etc. This balances the worst case — each time the first egg breaks earlier, you have one fewer drop left for the second egg.",
+      "Concretely for n=14: drop first egg at floor 14. If it breaks, try floors 1-13 with egg 2 (up to 13 more drops, total up to 14). If it survives, drop at floor 14+13=27. Continue: 27+12=39, 39+11=50, 50+10=60, 60+9=69, etc."
+    ],
+    "skills": ["dynamic_programming", "optimization", "algorithm_design", "decision_theory"]
+  },
+  {
+    "id": "opt_005",
+    "type": "optimization",
+    "title": "8 Billiard Balls — Find the Heavy One",
+    "question": "You have 8 billiard balls that look identical. One of the balls is slightly heavier than the other seven, which all weigh exactly the same. You have a balance scale.\n\nWhat is the minimum number of weighings needed to guarantee identifying the heavy ball?\n\nNow answer the harder version: what if you do NOT know whether the odd ball is heavier or lighter (it could be either)? What is the minimum number of weighings to identify the ball and determine whether it is heavier or lighter?\n\nFor the first version, provide the complete strategy. For the second version, state whether it is possible in 2 weighings and justify your answer.",
+    "answer": "Version 1 (known heavier): 2 weighings. Weigh 3 vs 3 first. Version 2 (unknown direction): not possible in 2 weighings for 8 balls. Two weighings give only 9 outcomes but there are 8x2=16 cases. 3 weighings are needed.",
+    "acceptableRange": null,
+    "difficulty": 4,
+    "hints": [
+      "For version 1: Split into 3+3+2. Weigh group A (3 balls) vs group B (3 balls). If one side is heavier, the fake is in that group — weigh 2 of those 3 against each other to find it. If balanced, fake is in the remaining 2 — weigh them directly.",
+      "Information theory: with 8 balls and known direction, there are 8 possible cases. Each weighing has 3 outcomes. Two weighings give up to 9 outcomes — sufficient for 8 cases. One weighing gives only 3 outcomes — not sufficient.",
+      "For version 2 (unknown direction): 8 balls times 2 fault directions = 16 cases. Two weighings give only 9 outcomes. Since 9 < 16, two weighings are provably insufficient by information theory. Three weighings give 27 outcomes, which is sufficient."
+    ],
+    "skills": ["information_theory", "logic", "decision_trees", "combinatorics"]
+  },
+  {
+    "id": "opt_006",
+    "type": "optimization",
+    "title": "Burning Ropes — Measure 45 Minutes",
+    "question": "You have two ropes and a box of matches. Each rope, when lit at one end, takes exactly 60 minutes to burn completely. However, the ropes do not burn at a uniform rate — a rope might burn half its length in the first 50 minutes and the other half in the last 10 minutes. You cannot assume any consistency in burn rate.\n\nUsing only these two ropes and the matches (no clock, no ruler, no other tools), how can you measure exactly 45 minutes?\n\nDescribe your method step by step, and explain why it guarantees exactly 45 minutes regardless of the ropes' non-uniform burn rates.",
+    "answer": "Light rope 1 at both ends simultaneously and light rope 2 at one end simultaneously. When rope 1 burns out (exactly 30 minutes elapsed), immediately light the other end of rope 2. Rope 2 will burn out exactly 15 minutes later — total elapsed time: 45 minutes.",
+    "acceptableRange": null,
+    "difficulty": 3,
+    "hints": [
+      "Lighting a rope at both ends simultaneously halves the total burn time, regardless of non-uniform burn rate — it will burn out in exactly 30 minutes.",
+      "When rope 1 burns out at the 30-minute mark, exactly 30 minutes of rope 2's burn time has been used, leaving exactly 30 minutes of burn time remaining in rope 2.",
+      "Lighting the remaining portion of rope 2 at both ends will halve the remaining time: 30 divided by 2 = 15 minutes more. Total: 30 + 15 = 45 minutes."
+    ],
+    "skills": ["lateral_thinking", "logic", "time_measurement", "creative_reasoning"]
+  },
+  {
+    "id": "opt_007",
+    "type": "optimization",
+    "title": "Pirate Gold Division — 5 Pirates",
+    "question": "Five pirates (ranked 1 to 5, with pirate 1 being most senior) have seized 100 gold coins. They must divide the gold using the following rules:\n\n1. The most senior living pirate proposes a distribution of all 100 coins.\n2. All pirates (including the proposer) vote on the proposal.\n3. If strictly more than half vote in favor, the proposal passes and coins are distributed.\n4. If the proposal fails, the proposing pirate is thrown overboard and the process repeats with the next most senior pirate.\n\nAll pirates are perfectly rational, infinitely greedy, and bloodthirsty (they prefer to kill whenever the outcome is otherwise equal). They all know each other is perfectly rational.\n\nWhat distribution should Pirate 1 propose to maximize their own gold, knowing the proposal will pass?\n\nSolve using backward induction starting from the 2-pirate case.",
+    "answer": "Pirate 1 proposes: keep 97, give 0 to pirate 2, give 1 to pirate 3, give 0 to pirate 4, give 2 to pirate 5. The proposal passes 3-2 (pirates 1, 3, and 5 vote yes).",
+    "acceptableRange": null,
+    "difficulty": 5,
+    "hints": [
+      "Work backwards. With 2 pirates: pirate 2 proposes and needs only their own vote (1 out of 2, which is not strictly more than half — wait, re-examine). With 2 pirates, strictly more than 1 vote means pirate 2 needs pirate 1 to agree. Pirate 2 offers pirate 1 one coin and keeps 99. Or: if it is simple majority out of 2, pirate 2 keeps all 100. Clarify: the problem means strictly more than half, so pirate 2 with 1 vote out of 2 is not a majority. So pirate 2 must offer pirate 1 enough to vote yes.",
+      "With 3 pirates: pirate 3 needs 2 of 3 votes. In the 2-pirate scenario below, pirate 2 can keep 100. So pirate 1 gets 0 if pirate 3 is eliminated. Pirate 3 offers pirate 1 just 1 coin. Pirate 3 keeps 99, offers 0 to pirate 2, 1 to pirate 1.",
+      "With 5 pirates: pirate 1 needs 3 votes (their own plus 2 others). Pirate 3 gets 1 coin in the 4-pirate scenario, so offer them exactly 2 (one better). Pirate 5 gets 0 in the 4-pirate scenario, so offer them 2 as well. Pirate 1 keeps 97."
+    ],
+    "skills": ["game_theory", "backward_induction", "rational_choice", "combinatorics"]
+  },
+  {
+    "id": "opt_008",
+    "type": "optimization",
+    "title": "The Josephus Problem",
+    "question": "41 prisoners are standing in a circle, numbered 1 through 41. Starting with prisoner 1, every second prisoner is executed: prisoner 1 survives, prisoner 2 is executed, prisoner 3 survives, prisoner 4 is executed, and so on. When you reach the end of the circle, you continue counting from the remaining prisoners.\n\nThis process continues until only one prisoner remains. That prisoner is set free.\n\nIn which position should a prisoner stand to guarantee survival?\n\nNow generalize: if there are n prisoners and every k-th prisoner is eliminated, what is the general formula for the survivor's position?\n\nFor the specific case of n=41, k=2, what is the answer?\n\nThis puzzle originates from the Jewish-Roman historian Flavius Josephus, who allegedly solved it in 67 AD to survive a siege.",
+    "answer": "For n=41, k=2: the survivor is in position 19. General formula for k=2: if n = 2^m + L where 0 <= L < 2^m, then the survivor stands in position 2L + 1.",
+    "acceptableRange": null,
+    "difficulty": 4,
+    "hints": [
+      "For k=2 (every 2nd person eliminated), there is a clean closed-form. Find the highest power of 2 that is less than or equal to n: 2^5 = 32 <= 41 < 64 = 2^6. So m=5, L = 41 - 32 = 9.",
+      "Survivor position = 2L + 1 = 2(9) + 1 = 19. Prisoner 19 survives.",
+      "Intuition: after the first pass through the circle, all even-numbered positions are eliminated. The remaining 20 or 21 people renumber and the problem recurses. The formula tracks who ends up in position 1 after each round of eliminations."
+    ],
+    "skills": ["dynamic_programming", "number_theory", "recursion", "combinatorics"]
+  },
+  {
+    "id": "opt_009",
+    "type": "optimization",
+    "title": "Three Switches and One Lightbulb",
+    "question": "You are standing outside a room with a closed door. Inside the room is a single incandescent lightbulb (not an LED or fluorescent — it generates significant heat when on). Outside the room are three switches. Exactly one switch controls the bulb; the other two do nothing.\n\nYou may manipulate the switches any way you like before entering the room. Once you open the door and enter, you cannot touch the switches again.\n\nHow can you determine with certainty which switch controls the bulb with just one trip into the room?\n\nNote: You cannot see any light under the door, through cracks, etc. You can only gain information by physically entering the room once.",
+    "answer": "Turn switch 1 on for 10 or more minutes, then turn it off. Turn switch 2 on. Enter the room: if the bulb is on, switch 2 controls it. If the bulb is off but warm, switch 1 controls it. If the bulb is off and cold, switch 3 controls it.",
+    "acceptableRange": null,
+    "difficulty": 3,
+    "hints": [
+      "The puzzle seems to only allow binary information (on/off), but the hint in the problem is the word incandescent — incandescent bulbs get hot when on.",
+      "You need to encode three distinct states in a single observation. Binary (on/off) gives only 2 states — not enough for 3 switches. Introduce a third physical property: heat.",
+      "Strategy: turn switch 1 on for ~10 minutes (bulb heats up), then turn it off. Turn switch 2 on. Enter. Observe: ON means switch 2. OFF plus HOT means switch 1. OFF plus COLD means switch 3."
+    ],
+    "skills": ["lateral_thinking", "state_encoding", "logic", "creative_reasoning"]
+  },
+  {
+    "id": "opt_010",
+    "type": "optimization",
+    "title": "Tiling a Mutilated Chessboard",
+    "question": "A standard chessboard has 64 squares arranged in an 8x8 grid, alternating between black and white squares. You have 32 dominoes, each of which covers exactly two adjacent squares (horizontally or vertically).\n\nQuestion 1: Can you tile the entire 8x8 chessboard with 32 dominoes?\n\nQuestion 2 (the hard part): Remove two diagonally opposite corner squares — specifically the top-left corner and the bottom-right corner. Now you have a board with 62 squares. Can you tile this mutilated board with exactly 31 dominoes?\n\nProvide a complete mathematical proof for your answer to Question 2, not just an argument by example.",
+    "answer": "No. Every domino covers exactly one black square and one white square. The two removed corners are the same color (both are white in standard coloring), so the mutilated board has 30 white squares and 32 black squares. Since each domino must cover one of each, 31 dominoes would need to cover 31 white and 31 black squares — impossible with unequal counts.",
+    "acceptableRange": null,
+    "difficulty": 3,
+    "hints": [
+      "Think about the coloring of the chessboard. Each domino, no matter where it is placed, must cover exactly one black square and one white square, because adjacent squares always differ in color.",
+      "The two removed corners: color the board so that corner (1,1) is white. The diagonally opposite corner (8,8) is also white (since 1+1=2 and 8+8=16 are both even, so both are the same color). The mutilated board has 32 white squares minus 2 = 30 white, and 32 black squares.",
+      "For full tiling with 31 dominoes, you would need 31 white and 31 black squares covered. But there are only 30 white squares. This is a contradiction — proof complete."
+    ],
+    "skills": ["combinatorics", "proof_by_contradiction", "graph_theory", "invariant_arguments"]
+  },
+  {
+    "id": "opt_011",
+    "type": "optimization",
+    "title": "The Ant on a Rubber Band",
+    "question": "An ant starts at one end of a 1-kilometer elastic rubber band. The ant crawls at 1 centimeter per second. After each second, the rubber band is instantaneously stretched by 1 kilometer — making it 2 km after second 1, 3 km after second 2, and so on. The rubber band stretches uniformly (the ant's position stretches proportionally with the rest of the band).\n\nWill the ant ever reach the other end of the rubber band? If so, roughly how long will it take?\n\nThis problem, which appears to defy intuition, is asked in quantitative finance interviews at Jane Street and Citadel to test understanding of harmonic series and convergence.\n\nHint: At the end of second k, the rubber band has length (k+1) km. Think about what fraction of the total band length the ant has covered at each step.",
+    "answer": "Yes, the ant will eventually reach the end. After second k, the ant covers fraction 1/(k times 100000) of the band's current length that second. Total fraction after n seconds equals the partial harmonic sum H(n) divided by 100,000. Since H(n) grows without bound, the ant reaches the end when H(n) approximately equals 100,000, requiring n approximately e^100,000 seconds — astronomically large but finite.",
+    "acceptableRange": null,
+    "difficulty": 5,
+    "hints": [
+      "At the start of second k, the rubber band has length k km = 100,000k cm. The ant crawls 1 cm, covering fraction 1/(100,000k) of the current length.",
+      "After stretching, the ant retains that fraction of the new longer band. The total fraction of band covered after n seconds is the sum from k=1 to n of 1/(100,000 times k) = H(n) divided by 100,000.",
+      "The ant reaches the end when this sum equals 1, meaning H(n) = 100,000. Since H(n) grows approximately as ln(n), we need n approximately e^100,000 — an astronomically large number, but finite. The ant does eventually reach the far end."
+    ],
+    "skills": ["infinite_series", "calculus", "harmonic_series", "counterintuitive_reasoning"]
+  },
+  {
+    "id": "opt_012",
+    "type": "optimization",
+    "title": "River Crossing — Missionaries and Cannibals",
+    "question": "Three missionaries and three cannibals must cross a river using a single boat that can hold at most two people. The boat requires at least one person to operate it.\n\nThe constraint: at no point on either bank can cannibals outnumber missionaries (because the cannibals will eat the missionaries). A bank with zero missionaries is always safe regardless of how many cannibals are there.\n\nFind a sequence of crossings that gets all 6 people safely across the river to the other side. What is the minimum number of one-way boat trips required?\n\nThis is a classic state-space search problem used in AI and algorithm design courses, and appears in consulting and tech interviews.",
+    "answer": "Minimum 11 one-way trips. One valid solution: (1) 2 cannibals cross. (2) 1 cannibal returns. (3) 2 cannibals cross. (4) 1 cannibal returns. (5) 2 missionaries cross. (6) 1 missionary plus 1 cannibal return. (7) 2 missionaries cross. (8) 1 cannibal returns. (9) 2 cannibals cross. (10) 1 cannibal returns. (11) 2 cannibals cross.",
+    "acceptableRange": null,
+    "difficulty": 3,
+    "hints": [
+      "Model this as a state-space search. The state is (missionaries on left, cannibals on left, boat side). Initial state: (3,3,left). Goal: (0,0,right). Constraint: if missionaries on either bank > 0, missionaries must be >= cannibals on that bank.",
+      "The key bottleneck: you cannot send 2 missionaries early unless cannibals are balanced. The trick is to move cannibals first, then ferry missionaries in pairs while shuttling a cannibal back.",
+      "Critical sequence: from (3,3,L) send 2 cannibals, then return 1, then send 2 cannibals, then return 1 — now at (3,1,L). Send 2 missionaries. Return 1M+1C. Send 2M. Return 1C. Send 2C. Return 1C. Send 2C. Done."
+    ],
+    "skills": ["state_space_search", "algorithm_design", "constraint_satisfaction", "BFS"]
+  },
+  {
+    "id": "opt_013",
+    "type": "optimization",
+    "title": "Hilbert's Hotel — The Infinite Hotel Paradox",
+    "question": "Hilbert's Hotel is a thought experiment devised by mathematician David Hilbert. The hotel has infinitely many rooms, numbered 1, 2, 3, 4, and so on — one room for every natural number. The hotel is currently full (every room is occupied).\n\nSolve each of the following scenarios:\n\n1. A new guest arrives. How can the hotel accommodate them without anyone leaving?\n\n2. A bus carrying countably infinitely many new guests (one for each natural number) arrives. How can the hotel accommodate all of them?\n\n3. Infinitely many buses each carrying infinitely many passengers arrive simultaneously. Can the hotel accommodate everyone?\n\nFor scenario 3, think about Cantor's diagonal argument or the interleaving trick used to show that rational numbers are countably infinite.\n\nThis is a classic puzzle from quantitative interviews at Renaissance Technologies and D.E. Shaw.",
+    "answer": "1) Move guest in room n to room n+1 for all n; put new guest in room 1. 2) Move guest in room n to room 2n (even rooms); put new guests in all odd rooms. 3) Arrange all new guests in a 2D grid indexed by (bus, seat); use Cantor's diagonal enumeration to map every pair (i,j) to a unique natural number.",
+    "acceptableRange": null,
+    "difficulty": 4,
+    "hints": [
+      "Scenario 1: Ask every current guest to move from room n to room n+1. Room 1 is now free for the new guest. This works because there are infinitely many rooms — no one gets displaced off the end.",
+      "Scenario 2: Ask every current guest to move from room n to room 2n (even rooms). All odd-numbered rooms are now free — infinitely many — and the new passengers fill them.",
+      "Scenario 3: The new guests form a countably infinite collection of countably infinite sets. Use Cantor's pairing function: assign guest in bus i, seat j the room number f(i,j) = (i+j-1)(i+j-2)/2 + i. This bijection maps all pairs (i,j) to unique positive integers."
+    ],
+    "skills": ["set_theory", "cardinality", "infinity", "bijection", "mathematical_reasoning"]
+  },
+  {
+    "id": "prob_001",
+    "type": "probability",
+    "title": "The Monty Hall Problem",
+    "question": "You are a contestant on a game show. There are three doors: behind one door is a car (the prize), and behind the other two doors are goats. You pick a door — say, door 1. The host (Monty Hall), who knows what is behind every door, opens one of the other two doors to reveal a goat — say, he opens door 3 to show a goat.\n\nMonty then asks: Do you want to switch to door 2, or stick with door 1?\n\nQuestion 1: What is the probability of winning if you switch? What if you stay?\n\nQuestion 2: Does it matter which door Monty opens? What if Monty opened door 2 instead of door 3?\n\nQuestion 3: What if there were 100 doors, you picked door 1, and Monty opened 98 doors (all showing goats), leaving only doors 1 and 67 closed? What is the probability the car is behind door 67?\n\nProvide complete Bayesian proofs for your answers.",
+    "answer": "Switching wins with probability 2/3; staying wins with probability 1/3. Monty's specific door choice does not change the answer as long as Monty always reveals a goat. With 100 doors: door 67 has probability 99/100.",
+    "acceptableRange": null,
+    "difficulty": 4,
+    "hints": [
+      "Prior probabilities: P(car behind door 1) = P(door 2) = P(door 3) = 1/3. Monty must reveal a goat and never opens your door.",
+      "When you pick door 1, the car is behind door 1 with probability 1/3, and behind door 2 or 3 with probability 2/3 combined. When Monty opens door 3 (a goat), the entire 2/3 probability collapses onto door 2.",
+      "Formal Bayes: P(car at door 2 | Monty opens door 3) = P(Monty opens door 3 | car at door 2) times P(car at door 2) divided by P(Monty opens door 3) = 1 times (1/3) divided by (1/2) = 2/3."
+    ],
+    "skills": ["bayesian_probability", "conditional_probability", "counterintuitive_reasoning"]
+  },
+  {
+    "id": "prob_002",
+    "type": "probability",
+    "title": "Birthday Paradox — Minimum Group for 50% Collision",
+    "question": "How many people must be in a room for there to be at least a 50% probability that two of them share the same birthday? Assume birthdays are uniformly distributed across 365 days (ignore leap years).\n\nPart 1: Compute the exact minimum group size n such that the probability of at least one shared birthday is at least 50%.\n\nPart 2: Compute the expected number of people needed until the first shared birthday occurs.\n\nPart 3: Generalize — if there are N equally likely outcomes (instead of 365 birthdays), approximately how many draws are needed for a 50% collision probability? Express as a function of N.\n\nThis result is fundamental to hash table collision analysis, cryptographic birthday attacks, and DNA matching statistics.",
+    "answer": "Part 1: n=23 gives probability approximately 50.73%. Part 2: Expected value approximately 24.6 people. Part 3: approximately sqrt(2N times ln 2) which is approximately 1.177 times sqrt(N) draws.",
+    "acceptableRange": null,
+    "difficulty": 4,
+    "hints": [
+      "It is easier to compute P(no shared birthday among n people). P(all different) = (365/365) times (364/365) times (363/365) times ... times ((365-n+1)/365).",
+      "For n=22: P(all different) approximately 0.5243, so P(collision) approximately 0.4757 < 50%. For n=23: P(all different) approximately 0.4927, so P(collision) approximately 0.5073 > 50%. Answer: n=23.",
+      "Approximation: P(all different) is approximately e^(-n(n-1)/(2 times 365)). Set equal to 0.5: solve to get n approximately sqrt(730 ln 2) approximately sqrt(506) approximately 22.5, round up to 23."
+    ],
+    "skills": ["combinatorics", "probability", "approximation", "cryptography"]
+  },
+  {
+    "id": "prob_003",
+    "type": "probability",
+    "title": "Expected Coin Flips to Get HH vs HT",
+    "question": "You flip a fair coin repeatedly until you see two heads in a row (HH). What is the expected number of flips until you see HH for the first time?\n\nNow answer the harder variant: what is the expected number of flips to see the pattern HT (heads followed by tails) for the first time? Is it the same as HH? If different, why?\n\nFinally: what is the expected number of flips to see HTH?\n\nThese questions are staples of Jane Street, Two Sigma, and Citadel quantitative trader interviews. They test your ability to set up recursive expectation equations using Markov chains.",
+    "answer": "E[HH] = 6 flips. E[HT] = 4 flips. E[HTH] = 10 flips. HH and HT differ because after a failed HH attempt (getting HT), you restart completely for HH but are already in a useful intermediate state for HT.",
+    "acceptableRange": null,
+    "difficulty": 4,
+    "hints": [
+      "For HH: Let E = expected flips from start, A = expected flips from state 'last flip was H'. E = 1 + (1/2)A + (1/2)E. A = 1 + (1/2)(0) + (1/2)E. Solving gives A = 1 + E/2, then E = 6.",
+      "For HT: Let E = expected from start, B = expected from state 'last was H'. E = 1 + (1/2)B + (1/2)E. In state B: flip T and you are done; flip H and you stay in state B. So B = 1 + (1/2)(0) + (1/2)B, giving B = 2. Then E = 1 + B/2 + E/2 gives E = 4.",
+      "Key insight for why HH differs from HT: after flipping H then getting T (failing HH), you must start completely over for the HH pattern. But for HT, flipping H and then H again keeps you in the 'last was H' state — you have not wasted the second flip. This asymmetry makes E[HT] = 4 while E[HH] = 6."
+    ],
+    "skills": ["probability", "markov_chains", "recursion", "expected_value"]
+  },
+  {
+    "id": "prob_004",
+    "type": "probability",
+    "title": "The Gambler's Ruin",
+    "question": "A gambler starts with $k and plays a game repeatedly. In each round, they win $1 with probability p and lose $1 with probability q = 1-p. The game ends when the gambler either reaches $N (success) or goes broke at $0 (ruin).\n\nPart 1: Derive the probability that the gambler reaches $N before going broke, starting from $k, for the general case p not equal to 1/2.\n\nPart 2: Derive the same probability for the fair game case p = 1/2.\n\nPart 3: A gambler has $10, wants to reach $100, and plays a game with p = 0.48 (slight house edge). What is the probability of success? Compare to p = 0.5.\n\nPart 4: What is the expected duration of the game starting from $k with absorbing barriers at 0 and N?\n\nThis is a fundamental result in probability theory, asked at quantitative finance firms and in risk management interviews.",
+    "answer": "P(reach N from k) = [1-(q/p)^k] / [1-(q/p)^N] for p not equal to 1/2. For p=1/2: P(reach N) = k/N. For k=10, N=100, p=0.48: P is approximately 0.0000289. For p=0.5: P = 10/100 = 0.1.",
+    "acceptableRange": null,
+    "difficulty": 5,
+    "hints": [
+      "Let P_k = probability of reaching $N starting from $k. Boundary conditions: P_0 = 0, P_N = 1. Recursion: P_k = p times P_{k+1} + q times P_{k-1}. This is a linear recurrence with characteristic roots r=1 and r=q/p.",
+      "General solution: P_k = A + B(q/p)^k. Applying boundary conditions gives P_k = [1-(q/p)^k] / [1-(q/p)^N] for p not equal to 1/2.",
+      "For p=0.48, q=0.52: q/p = 52/48 approximately 1.0833. (q/p)^10 approximately 2.20, (q/p)^100 approximately 1,163. P_10 = (1-2.20)/(1-1163) approximately 0.00103. Even a small house edge dramatically reduces the gambler's success probability."
+    ],
+    "skills": ["probability", "stochastic_processes", "recurrence_relations", "finance"]
+  },
+  {
+    "id": "prob_005",
+    "type": "probability",
+    "title": "The Secretary Problem — Optimal Stopping",
+    "question": "You must hire a secretary from a pool of n candidates. Candidates are interviewed one at a time in random order. After each interview, you must immediately decide whether to hire that candidate or reject them permanently. You can rank any candidate relative to all previously seen candidates.\n\nYour goal is to maximize the probability of hiring the best candidate out of all n.\n\nPart 1: Derive the optimal stopping strategy.\n\nPart 2: What is the probability of selecting the best candidate under this optimal strategy, as n approaches infinity?\n\nPart 3: If n = 100, what is the optimal number of candidates to observe before you start accepting, and what is the resulting success probability?\n\nThis problem, also known as the marriage problem or 37% rule, appears in McKinsey behavioral interviews and algorithmic decision theory.",
+    "answer": "Optimal strategy: observe (reject) the first r-1 candidates, then hire the first candidate better than all previous. Optimal r is approximately n/e (approximately 37% of n). Success probability approaches 1/e approximately 36.79%. For n=100: r=37, success probability approximately 36.8%.",
+    "acceptableRange": null,
+    "difficulty": 5,
+    "hints": [
+      "The strategy is a threshold rule: skip the first r candidates to establish a reference, then hire the first candidate who beats all of those r. Choose r to maximize P(hire best).",
+      "P(best | threshold r) = (r/n) times the sum from k=r to n-1 of 1/k. As n approaches infinity, this approaches (r/n) times ln(n/r). Let x = r/n and maximize x times ln(1/x). The maximum is at x = 1/e.",
+      "At r/n = 1/e, P(success) = (1/e) times ln(e) = 1/e approximately 0.368. For n=100: skip first 37 candidates, then hire the first one better than all 37. Probability of getting the best candidate is approximately 37%."
+    ],
+    "skills": ["probability", "optimal_stopping", "calculus", "decision_theory"]
+  },
+  {
+    "id": "prob_006",
+    "type": "probability",
+    "title": "Coupon Collector Problem",
+    "question": "A cereal company puts one of n different collectible coupons in each box. Each box independently contains a uniformly random coupon (each coupon equally likely). You buy boxes until you have collected at least one of every coupon.\n\nPart 1: What is the expected number of boxes you must buy to complete the collection?\n\nPart 2: For n = 10 (ten distinct coupons), what is the expected number of purchases?\n\nPart 3: For n = 52 (like a deck of playing cards), approximately how many draws are needed?\n\nPart 4: If you have already collected k distinct coupons out of n, what is the expected additional number of boxes to collect the next new coupon? Use this to derive the complete formula.\n\nThis result appears in database hashing, network broadcasting, and random testing, and is a classic Two Sigma and Citadel probability interview question.",
+    "answer": "E[T] = n times H(n) = n times (1 + 1/2 + 1/3 + ... + 1/n). For n=10: E is approximately 29.3. For n=52: E is approximately 235.97.",
+    "acceptableRange": null,
+    "difficulty": 4,
+    "hints": [
+      "When you have k coupons, the probability that the next box gives a new one is (n-k)/n. The expected number of boxes to get the (k+1)th new coupon is n/(n-k) — geometric distribution.",
+      "Total expected boxes = sum over k from 0 to n-1 of n/(n-k) = n times [1/n + 1/(n-1) + ... + 1/1] = n times H(n), where H(n) is the n-th harmonic number.",
+      "H(n) is approximately ln(n) + 0.5772 (Euler-Mascheroni constant). For n=52: H(52) is approximately ln(52) + 0.577 approximately 4.528. E is approximately 52 times 4.528 approximately 235.5."
+    ],
+    "skills": ["probability", "harmonic_series", "expected_value", "geometric_distribution"]
+  },
+  {
+    "id": "prob_007",
+    "type": "probability",
+    "title": "Chuck-a-Luck — Expected Value Analysis",
+    "question": "Chuck-a-Luck is a carnival dice game. The player bets $1 on a number from 1 to 6. Three fair dice are rolled. The payouts are:\n- If none of the dice shows your number: lose $1.\n- If exactly one die shows your number: win $1 (net gain $1).\n- If exactly two dice show your number: win $2 (net gain $2).\n- If all three dice show your number: win $3 (net gain $3).\n\nThe carnival operator claims: There are 3 dice and 6 numbers, so you should win half the time on average — it is a fair game!\n\nIs the game fair? Compute the exact expected value per $1 bet. If it is not fair, who has the edge and by how much?\n\nThis appears in probability and finance interviews to test basic expectation calculations and to spot misleading intuitions.",
+    "answer": "Expected value = -17/216 approximately -$0.0787 per dollar bet. The house has a 7.87% edge. The operator's reasoning is fallacious.",
+    "acceptableRange": null,
+    "difficulty": 3,
+    "hints": [
+      "Calculate probabilities. P(0 matches) = (5/6)^3 = 125/216. P(1 match) = C(3,1) times (1/6) times (5/6)^2 = 75/216. P(2 matches) = C(3,2) times (1/6)^2 times (5/6) = 15/216. P(3 matches) = (1/6)^3 = 1/216.",
+      "Verify: 125+75+15+1 = 216. Expected net gain = (-1)(125/216) + (1)(75/216) + (2)(15/216) + (3)(1/216).",
+      "= (-125 + 75 + 30 + 3)/216 = -17/216 approximately -0.0787. House edge is approximately 7.87%. The operator's error: P(at least one match) = 91/216 approximately 42.1%, not 50%."
+    ],
+    "skills": ["probability", "expected_value", "binomial_distribution", "fallacy_detection"]
+  },
+  {
+    "id": "prob_008",
+    "type": "probability",
+    "title": "The Envelope Paradox",
+    "question": "Two sealed envelopes each contain money. You are told that one envelope contains twice as much money as the other, but you do not know which is which. You pick one envelope at random and open it — it contains $100.\n\nYou are then offered a chance to switch to the other envelope.\n\nA seemingly valid argument says: The other envelope contains either $50 or $200 with equal probability. The expected value of switching is (0.5) times $50 + (0.5) times $200 = $125 > $100. So you should always switch.\n\nBut if you always switch before opening, you would switch again after opening the other one — creating an infinite loop. Something is wrong.\n\nPart 1: Identify exactly where the argument goes wrong.\nPart 2: Under what probability distribution over envelope amounts would the expected value argument for switching be valid?\nPart 3: Should you switch if you have no information about the prior distribution of amounts?\n\nThis paradox appears in philosophy of probability, decision theory, and hedge fund interviews.",
+    "answer": "The flaw: the argument assumes P(other envelope = $200 | you see $100) = P(other envelope = $50 | you see $100) = 0.5, but this depends on a prior distribution over possible envelope amounts. For any proper prior, these probabilities are not generally equal, and no proper probability distribution makes switching always optimal.",
+    "acceptableRange": null,
+    "difficulty": 5,
+    "hints": [
+      "The flaw is a prior distribution inconsistency. Let the smaller envelope contain amount X (a random variable). If you see $100, then either X=$50 (your envelope is the larger) or X=$100 (your envelope is the smaller). The two cases have equal probability only if P(X=50) = P(X=100), which requires a specific prior.",
+      "By Bayes theorem: P(X=50 | see 100) is proportional to P(see 100 | X=50) times P(X=50) = 1 times P(X=50). Similarly P(X=100 | see 100) is proportional to P(X=100). These are equal only for a specific prior.",
+      "For the switching argument to hold for every possible value you might open, you would need P(X=x) = P(X=2x) for all x — an improper (non-normalizable) prior that cannot be a valid probability distribution. The paradox dissolves when a proper prior is specified."
+    ],
+    "skills": ["bayesian_probability", "decision_theory", "paradoxes", "prior_distributions"]
+  },
+  {
+    "id": "prob_009",
+    "type": "probability",
+    "title": "The St. Petersburg Paradox",
+    "question": "A casino offers the following game: a fair coin is flipped repeatedly until the first tail appears. The casino pays you 2^k dollars where k is the number of flips until (and including) the first tail.\n\nSo: first flip is tails pays $2. First flip heads, second tails pays $4. Two heads then tails pays $8. And so on.\n\nPart 1: Calculate the expected value of this game. How much should a rational expected-value-maximizer be willing to pay to play?\n\nPart 2: Despite the infinite expected value, most people would only pay $20-$30 to play. Explain this disconnect — why does expected value fail as a decision criterion here?\n\nPart 3: Daniel Bernoulli proposed using logarithmic utility to resolve this paradox. If your utility function is U(w) = ln(w) and your current wealth is $1,000, what is the maximum entry fee you should pay?\n\nThis is a famous problem in mathematical economics, asked at quantitative finance and strategy consulting firms.",
+    "answer": "E[payout] = sum of (1/2^k) times 2^k for k=1 to infinity = sum of 1 = infinity. With log utility U(w) = ln(w) and wealth W=1000, the maximum willingness to pay f satisfies a convergent series equation. For W=1000, f is approximately $20.88.",
+    "acceptableRange": null,
+    "difficulty": 5,
+    "hints": [
+      "E = sum from k=1 to infinity of P(first tail on flip k) times 2^k = sum of (1/2^k) times 2^k = sum of 1 = infinity. The expected value is infinite.",
+      "Why people do not pay much: the marginal utility of money decreases (diminishing returns). Gaining $1 billion is not a million times more valuable than gaining $1,000 for most people. Expected monetary value ignores diminishing marginal utility.",
+      "With U(w) = ln(w) and wealth W: expected utility of playing for fee f = sum of (1/2^k) times ln(W - f + 2^k). Set equal to ln(W) (utility of not playing). This series converges because ln grows slowly. For W=1000, numerical solution gives f approximately $20.88."
+    ],
+    "skills": ["expected_value", "utility_theory", "decision_theory", "infinite_series"]
+  },
+  {
+    "id": "prob_010",
+    "type": "probability",
+    "title": "Hat Color Problem — Optimal Guessing Strategy",
+    "question": "100 prisoners are each placed in a separate room. A warden assigns each prisoner either a red hat or a blue hat, chosen independently and uniformly at random. Each prisoner can see no one else's hat color and has no information about what the others received.\n\nSimultaneously (no communication), each prisoner must guess their own hat color. A prisoner is executed if they guess wrong.\n\nCan you design a strategy such that exactly 50 prisoners are guaranteed to survive, regardless of the hat assignment?\n\nNow the harder variant: suppose instead of 2 colors there are k colors, and there are exactly k prisoners. Design a strategy that guarantees at least one prisoner guesses correctly.\n\nThis is asked at Jane Street and involves modular arithmetic and information theory.",
+    "answer": "For 2 colors, 100 prisoners: assign each prisoner a number 0-99. Prisoner i guesses the color that would make the total sum of all hat values congruent to i modulo 2. Exactly one prisoner (the one whose index matches the actual sum mod 2) is guaranteed correct — 99 are executed and 1 survives. For k colors and k prisoners: prisoner i guesses color (i minus sum of all others' visible hats) mod k. Exactly one is guaranteed correct.",
+    "acceptableRange": null,
+    "difficulty": 5,
+    "hints": [
+      "Encode red=0, blue=1. The hat assignment is a sequence of 100 bits. Prisoner i must commit to a single guess without seeing any hats.",
+      "Strategy: prisoner i guesses the color that would make the sum of all hat values congruent to i modulo 2. Prisoner i does not know others' hats, so they assume the sum mod 2 equals i and guess accordingly.",
+      "Exactly one value of i will equal the actual sum mod 2. That prisoner guesses correctly. All others guess incorrectly. This guarantees exactly 1 survivor out of 100. For k colors and k prisoners: prisoner i assumes sum mod k equals i and guesses accordingly. Exactly one prisoner is correct."
+    ],
+    "skills": ["combinatorics", "modular_arithmetic", "information_theory", "probability"]
+  },
+  {
+    "id": "prob_011",
+    "type": "probability",
+    "title": "Random Walk — Return to Origin in 2D vs 3D",
+    "question": "A particle begins at the origin and takes random steps. In each step, it moves one unit in a uniformly random direction.\n\nIn 1D: at each step, the particle moves +1 or -1 with equal probability.\nIn 2D: at each step, the particle moves North, South, East, or West with equal probability.\nIn 3D: at each step, the particle moves in one of 6 directions (plus or minus x, y, or z) with equal probability.\n\nPart 1: In the 1D random walk, what is the probability that the particle eventually returns to the origin? Prove it.\n\nPart 2: In the 2D random walk, what is the probability of eventual return to the origin? (Famous result by Polya, 1921.)\n\nPart 3: In the 3D random walk, what is the probability of eventual return? Is it greater than, equal to, or less than 1?\n\nPart 4: What is the intuitive explanation for the difference between 2D and 3D?\n\nThis is asked at D.E. Shaw and Jane Street in probabilistic algorithm discussions.",
+    "answer": "1D: probability 1 (certain return). 2D: probability 1 (certain return — Polya's theorem). 3D: probability approximately 0.3405 (less than 1 — the walk is transient). The 3D walk escapes to infinity with probability approximately 65.95%.",
+    "acceptableRange": null,
+    "difficulty": 5,
+    "hints": [
+      "1D: By the recurrence of simple random walk, the walk returns to origin with probability 1. Proof: P(return to origin) = 1 if and only if the sum of P(at origin at time 2n) diverges. P(at origin at 2n) = C(2n,n)/4^n is approximately 1/sqrt(pi times n). The sum of 1/sqrt(n) diverges.",
+      "2D: Similarly recurrent. P(at origin at 2n) in 2D is approximately 1/(pi times n). The sum of 1/n diverges (harmonic series). So 2D is also recurrent — return probability = 1.",
+      "3D: P(at origin at 2n) in 3D is approximately C/(n^{3/2}) for some constant C. The sum of 1/n^{3/2} converges (p-series with p=3/2 > 1). So the 3D walk is transient. The exact return probability is approximately 0.3405 — the walk escapes to infinity with probability approximately 65.95%."
+    ],
+    "skills": ["probability", "random_walks", "series_convergence", "recurrence"]
+  },
+  {
+    "id": "gt_001",
+    "type": "game_theory",
+    "title": "Guess 2/3 of the Average — Beauty Contest Game",
+    "question": "All participants in this puzzle are asked to simultaneously submit a real number between 0 and 100 (inclusive). The winner is the participant whose submission is closest to 2/3 of the average of all submissions. Ties are broken randomly.\n\nPart 1: If all participants are perfectly rational and this is common knowledge (everyone knows everyone is rational, and everyone knows that everyone knows this, etc.), what is the Nash equilibrium of this game? What number should a perfectly rational player submit?\n\nPart 2: What number do real humans typically submit in practice on the first try? How does this change as the game is played repeatedly with the same group?\n\nPart 3: This game is related to Keynes's beauty contest metaphor for stock markets. What was Keynes's insight about stock market valuation and how does it connect to this game?\n\nThis exact game was run by the Financial Times in the 1990s.",
+    "answer": "Nash equilibrium: submit 0. Reasoning: if everyone submits x, 2/3 of average = 2x/3 < x, so x cannot be a fixed point unless x=0. By iterated dominance, any x>0 is dominated. Real humans typically submit 22-33 in first rounds; repeated play converges toward 0.",
+    "acceptableRange": null,
+    "difficulty": 4,
+    "hints": [
+      "Suppose everyone submits 100. Then 2/3 of the average = 66.7. If you know others will submit 100, you should submit 67. But if others are equally smart, they will also submit 67. Then 2/3 of 67 is 44.7. Continue iterating...",
+      "Iterated dominance: any number above 66.7 is strictly dominated (the answer can never exceed 2/3 of the maximum possible average of 100 = 66.7). After eliminating those, any number above 44.4 is dominated. After k iterations, only numbers below (2/3)^k times 100 survive. As k approaches infinity, this converges to 0.",
+      "Nash equilibrium: everyone submits 0. At this point, average = 0, 2/3 of 0 = 0. No individual can do better by deviating. 0 is the unique dominant strategy equilibrium."
+    ],
+    "skills": ["game_theory", "nash_equilibrium", "iterated_dominance", "behavioral_economics"]
+  },
+  {
+    "id": "gt_002",
+    "type": "game_theory",
+    "title": "Nim Strategy — Optimal Play with XOR",
+    "question": "Nim is a mathematical game. Several piles of stones are arranged on a table. Two players alternate turns. On each turn, a player must remove at least one stone from exactly one pile (they may remove as many as they want from the chosen pile). The player who takes the last stone wins (normal play convention).\n\nExample game: three piles with 3, 4, and 5 stones respectively.\n\nPart 1: What is the winning strategy for Nim? Describe it precisely in terms of a mathematical invariant.\n\nPart 2: For the starting position [3, 4, 5], who wins with optimal play — the first player or the second player? What is the first move?\n\nPart 3: What is the Sprague-Grundy theorem and how does it generalize Nim theory to all impartial games?\n\nPart 4: If the rule is changed so that the player who takes the last stone LOSES (misere Nim), how does the optimal strategy change?\n\nThis is asked at quantitative trading firms and in combinatorial game theory.",
+    "answer": "Winning condition: XOR (nim-sum) of all pile sizes is not zero. For [3,4,5]: 3 XOR 4 XOR 5 = 2, which is not 0, so first player wins. First move: reduce the pile of 3 to 1, leaving [1,4,5] with XOR = 0.",
+    "acceptableRange": null,
+    "difficulty": 4,
+    "hints": [
+      "The key invariant is the bitwise XOR (nim-sum) of all pile sizes. A position is losing for the player about to move if and only if the nim-sum equals 0.",
+      "Why: any move from a nim-sum=0 position creates nim-sum not equal to 0. From any nim-sum not equal to 0 position, there exists a move to nim-sum=0. So the player who faces nim-sum=0 will always eventually lose.",
+      "For [3,4,5]: 3 in binary = 011, 4 = 100, 5 = 101. XOR = 011 XOR 100 XOR 101 = 010 = 2, not 0. To win, find a move to make nim-sum = 0. Try reducing pile of 3: need x such that x XOR 4 XOR 5 = 0, meaning x = 4 XOR 5 = 1. Reduce the pile of 3 to 1. Check: 1 XOR 4 XOR 5 = 001 XOR 100 XOR 101 = 000 = 0. Correct."
+    ],
+    "skills": ["game_theory", "bitwise_operations", "combinatorial_games", "invariants"]
+  },
+  {
+    "id": "gt_003",
+    "type": "game_theory",
+    "title": "Vickrey Auction — Second Price Sealed Bid",
+    "question": "A seller is auctioning a single item. n bidders each privately know their own valuation v_i (how much the item is worth to them personally). Each bidder simultaneously submits a sealed bid b_i. The highest bidder wins and pays the second-highest bid price (not their own bid).\n\nPart 1: Prove that bidding your true valuation b_i = v_i is a weakly dominant strategy.\n\nPart 2: Why is this result remarkable compared to first-price auctions (where winner pays their own bid)?\n\nPart 3: What happens to economic efficiency — does the item always go to the person who values it most?\n\nPart 4: What if the seller uses a reserve price r (the item will not be sold if the highest bid is below r)? How should bidders behave, and is truthful bidding still dominant?\n\nThis is a foundational result in mechanism design, asked in Goldman Sachs and McKinsey strategy interviews.",
+    "answer": "Truthful bidding (b_i = v_i) is a weakly dominant strategy. If you win, you pay the second-highest bid regardless of your own bid value. Overbidding only risks winning at a price above your value. Underbidding only risks losing an item worth more than you would have paid. Truthful bidding is optimal in all cases.",
+    "acceptableRange": null,
+    "difficulty": 4,
+    "hints": [
+      "Consider two cases. Case A: you would win with truthful bidding (highest other bid p < v_i). You win and pay p regardless of your exact bid. Overbidding does not help; underbidding below p causes you to lose unnecessarily.",
+      "Case B: you would lose with truthful bidding (highest other bid p > v_i). If you overbid above p, you win but pay p > v_i — a negative-value transaction. Underbidding further just makes you lose by more — same outcome as truthful bidding.",
+      "Efficiency: since everyone bids truthfully, the highest bidder is the person with the highest valuation. The item goes to whoever values it most — allocatively efficient. First-price auctions incentivize bid-shading (bidding below true value), which complicates both strategy and efficiency analysis."
+    ],
+    "skills": ["game_theory", "mechanism_design", "auction_theory", "dominant_strategy"]
+  },
+  {
+    "id": "gt_004",
+    "type": "game_theory",
+    "title": "Prisoner's Dilemma — Iterated Play and Tit-for-Tat",
+    "question": "Two suspects (prisoners A and B) are interrogated separately. Each can either Cooperate (stay silent) or Defect (betray the other). The payoff matrix in years of prison (lower is better):\n\n- Both cooperate: each gets 1 year\n- Both defect: each gets 3 years\n- A defects, B cooperates: A goes free (0 years), B gets 5 years\n- A cooperates, B defects: A gets 5 years, B goes free\n\nPart 1: What is the Nash equilibrium of the one-shot game? Is it Pareto optimal?\n\nPart 2: In the infinitely repeated game, under what condition (in terms of discount factor delta) does mutual cooperation become a Nash equilibrium?\n\nPart 3: Robert Axelrod ran a famous computer tournament in the 1980s. Which strategy won? Describe it completely and explain why it outperformed more complex strategies.\n\nPart 4: How does this game model real-world situations like arms races, climate agreements, or price competition between firms?",
+    "answer": "Nash equilibrium: both defect (defection is a dominant strategy). Not Pareto optimal — both cooperating (1,1) strictly dominates the equilibrium (3,3). In repeated game, cooperation sustained by grim trigger requires delta >= 1/3. Axelrod's winner: Tit-for-Tat — cooperate on first move, then copy opponent's last move.",
+    "acceptableRange": null,
+    "difficulty": 4,
+    "hints": [
+      "One-shot Nash: regardless of what B does, A is better off defecting (0 < 1 if B cooperates; 3 < 5 if B defects). Defection is a strictly dominant strategy. Both defect. The outcome (3,3) is Pareto dominated by (1,1) — both could be better off, but rational self-interest leads them to mutual defection.",
+      "Repeated game grim trigger: cooperate until someone defects, then defect forever. Cooperation payoff = 1/(1-delta). Deviation payoff = 0 + delta times 3/(1-delta). Cooperate if 1/(1-delta) >= 3 delta/(1-delta), which simplifies to delta >= 1/3.",
+      "Tit-for-Tat: start by cooperating. On every subsequent move, copy whatever your opponent did last round. It is nice (never defects first), retaliatory (punishes defection immediately), forgiving (resumes cooperation if opponent does), and clear. It won Axelrod's tournament by promoting cooperation while resisting exploitation."
+    ],
+    "skills": ["game_theory", "nash_equilibrium", "repeated_games", "cooperation_theory"]
+  },
+  {
+    "id": "gt_005",
+    "type": "game_theory",
+    "title": "The Dollar Auction — Escalation and Sunk Costs",
+    "question": "The following auction was designed by economist Martin Shubik to demonstrate irrational escalation and the sunk cost fallacy.\n\nA $20 bill is auctioned off to a group of bidders. Bids increase in $1 increments. The highest bidder wins the $20 bill and pays their bid. The critical rule: the SECOND-highest bidder also pays their bid but gets nothing.\n\nPart 1: Suppose two rational players are in the auction. Bidder A has bid $19 and bidder B has bid $18. Should B raise to $19 to tie? Should B raise to $20?\n\nPart 2: Trace the backward induction argument. What happens at $20, $21, $22?\n\nPart 3: At what point does backward induction break down, and why? What is the theoretical Nash equilibrium?\n\nPart 4: What real-world phenomena does this model? Give two examples.\n\nPart 5: How does the dollar auction relate to war, litigation, and corporate bidding wars?",
+    "answer": "There is no finite Nash equilibrium — the game theoretically escalates indefinitely because at every point the second-place bidder is better off raising than conceding their losing bid. The Nash equilibrium is: neither player enters the auction in the first place (the dominant strategy is not to bid at all).",
+    "acceptableRange": null,
+    "difficulty": 5,
+    "hints": [
+      "At B=$19, A=$20: B must decide. If B does not raise, B pays $19 and gets nothing (net -$19). If B raises to $21, B might win the $20 bill for a net loss of $1. Since -$1 > -$19, B raises. But now A faces the same dilemma.",
+      "Escalation continues: at every stage, the second-place bidder is better off raising than conceding their current bid. This logic holds at $20, $21, $100, $1000. There is no natural stopping point within the game.",
+      "The true Nash equilibrium is not to enter the auction at all. Once one player bids $1, they are trapped in an escalation. This models arms races (both sides should not start), litigation (both sides pay lawyers even when the loser gets nothing), and corporate M&A bidding wars where acquirers overpay."
+    ],
+    "skills": ["game_theory", "backward_induction", "sunk_cost", "escalation", "nash_equilibrium"]
+  },
+  {
+    "id": "gt_006",
+    "type": "game_theory",
+    "title": "The Traveler's Dilemma",
+    "question": "Two travelers lose identical antiques at the same airport. The airline agrees to compensate them but does not know the true value. The airline asks each traveler to independently write down an integer from $2 to $100 as their claim.\n\nThe payoff rule: if both write the same number n, each gets $n. If they write different numbers, the traveler who wrote the lower number gets that lower amount plus $2 bonus (for being honest), and the other traveler gets the lower amount minus $2 penalty.\n\nPart 1: Find the Nash equilibrium using backward induction. What number should a rational player write?\n\nPart 2: In practice, most people write numbers in the range $90-$100, far above the Nash equilibrium. Why?\n\nPart 3: This is an example of a game where the Nash equilibrium is inefficient — both players writing $100 would give both $100. What does this say about the predictive power of Nash equilibrium in real games?\n\nPart 4: How is this related to the iterated prisoner's dilemma and bounded rationality?",
+    "answer": "Nash equilibrium: both write $2. Reasoning: if opponent writes $100, write $99 (get $99+2=$101 > $100). But opponent reasons the same and writes $99. Then write $98. By induction, both write $2. Actual behavior: most write $90-$100, defying the Nash prediction.",
+    "acceptableRange": null,
+    "difficulty": 4,
+    "hints": [
+      "Backward induction from $100: if both write $100, each gets $100. But if I write $99 while opponent writes $100, I get $99+$2=$101 > $100. So writing $99 dominates writing $100.",
+      "Continue: if both write $99, I could write $98 and get $98+$2=$100 > $99. So $98 dominates $99. Iterate all the way down to $2 — at every step, writing one less than the opponent is optimal. Nash equilibrium: (2, 2).",
+      "The paradox: both writing $100 gives (100, 100) — both are better off than at the Nash equilibrium (2, 2). The Nash equilibrium is Pareto dominated. Real humans use intuitive cooperative reasoning rather than full backward induction and tend to write high numbers."
+    ],
+    "skills": ["game_theory", "backward_induction", "nash_equilibrium", "behavioral_economics"]
+  },
+  {
+    "id": "logic_001",
+    "type": "strategy",
+    "title": "The Hardest Logic Puzzle Ever",
+    "question": "Three gods sit before you: True, False, and Random. True always tells the truth. False always lies. Random answers truly or falsely at random (with equal probability, independently for each question). The gods understand English but answer only in their own language: da and ja, one of which means yes and the other means no — but you do not know which is which.\n\nYou may ask exactly three yes/no questions, each directed at exactly one god. You may ask multiple questions to the same god.\n\nTask: Determine the identities of all three gods — which is True, which is False, which is Random.\n\nThis puzzle was invented by logician George Boolos and published in the Harvard Review of Philosophy in 1996. It is considered the world's hardest logic puzzle.",
+    "answer": "The key technique is to ask counterfactual (biconditional) questions to neutralize the language uncertainty. Ask a god: if I asked you whether god A is Random, would you say da? This double negation makes True and False give the same answer structure. First identify a non-Random god, then extract full information about identities.",
+    "acceptableRange": null,
+    "difficulty": 5,
+    "hints": [
+      "The language uncertainty (not knowing which of da/ja means yes) can be circumvented by asking self-referential questions. If you ask would you say da if I asked you X, both True and False will give the same answer as if you asked X directly — the double negation cancels for both truth-tellers and liars.",
+      "The Random god is the main complication. Strategy: first, identify a god that is definitely not Random. Ask god B a question about whether god A is Random. A non-Random god's answer to a biconditional question is predictable regardless of the da/ja mapping.",
+      "Full solution requires careful case analysis. Once you identify a definite non-Random god (either True or False), ask it two more questions: one to determine if it is True or False, and one to determine the remaining god's identity."
+    ],
+    "skills": ["epistemic_logic", "self_reference", "biconditionals", "constraint_satisfaction"]
+  },
+  {
+    "id": "logic_002",
+    "type": "strategy",
+    "title": "Cheryl's Birthday — Singapore Math Olympiad",
+    "question": "Albert and Bernard have just met Cheryl. They want to know her birthday. Cheryl gives them a list of 10 possible dates:\n\nMay 15, May 16, May 19\nJune 17, June 18\nJuly 14, July 16\nAugust 14, August 15, August 17\n\nCheryl whispers the birth month to Albert and the birth day to Bernard.\n\nAlbert says: I do not know Cheryl's birthday, and I know that Bernard does not know it either.\n\nBernard says: At first I did not know, but now I do.\n\nAlbert says: Now I know too.\n\nWhen is Cheryl's birthday?\n\nThis puzzle went viral in 2015 and appeared on a Singapore Mathematical Olympiad paper. It is asked in Google and Stripe interviews.",
+    "answer": "July 16. Albert's first statement eliminates May and June (since Bernard must not know, May 19 and June 18 are eliminated — those days appear only once). Bernard then knows, so the day must be unique among remaining months July and August — eliminating 14. Albert then knows, so the month must be unique — leaving only July 16.",
+    "acceptableRange": null,
+    "difficulty": 3,
+    "hints": [
+      "Albert knows the month and is certain Bernard does not know the date. For Bernard to know from the day alone, the day must appear only once in the full list. Days 18 (June 18) and 19 (May 19) each appear only once. Albert must know Bernard's day is not 18 or 19 — so Albert's month contains neither of these. Eliminate May and June.",
+      "Remaining dates: July 14, July 16, August 14, August 15, August 17. Bernard now knows the date from the day alone. Day 14 appears twice (July 14 and August 14) — if Bernard has 14, he cannot know. Eliminate July 14 and August 14. Remaining: July 16, August 15, August 17.",
+      "Albert now knows. He knows the month. If the month were August, there would be two options (15 and 17) and Albert could not be certain. So the month must be July. The only remaining July date is July 16."
+    ],
+    "skills": ["logic", "epistemic_reasoning", "elimination", "common_knowledge"]
+  },
+  {
+    "id": "logic_003",
+    "type": "strategy",
+    "title": "100 Hats on a Line — XOR Parity Strategy",
+    "question": "100 prisoners are lined up in a single-file line. Each prisoner is randomly assigned either a red hat or a blue hat. Each prisoner can see all the hats in front of them but not their own or those behind them. Starting from the back of the line, each prisoner must guess their own hat color out loud — everyone else can hear each guess.\n\nIf a prisoner guesses correctly, they go free. If wrong, they are executed.\n\nThe prisoners can meet beforehand and agree on a strategy. What strategy maximizes the number of guaranteed survivors?\n\nNote: The hat assignments are adversarial — assume the worst case. You must guarantee that at least 99 of the 100 prisoners survive.",
+    "answer": "Strategy: encode hat colors as 0 and 1. The last prisoner (who can see all 99 others) announces the parity (XOR) of the 99 hats they see. This person has a 50/50 chance of survival. All other 99 prisoners maintain a running parity count and can deduce their own hat color exactly, guaranteeing 99 survivors.",
+    "acceptableRange": null,
+    "difficulty": 4,
+    "hints": [
+      "Assign red=0, blue=1. The last prisoner computes the XOR of all 99 hats they see and announces the color corresponding to that parity. They may be wrong (50/50 chance).",
+      "The 99th prisoner hears the last prisoner's announcement and sees 98 hats in front. They know the announced parity, can compute the parity of the 98 hats they see, and deduce: own hat = (announced parity) XOR (parity of seen hats). They are guaranteed correct.",
+      "Each subsequent prisoner has heard all previous correct answers and sees all hats in front. They maintain a running parity and always deduce their own hat color exactly. Only the last prisoner (the first to guess) is uncertain — they are correct with probability 1/2. All other 99 are guaranteed correct."
+    ],
+    "skills": ["logic", "information_theory", "XOR", "parity", "strategy"]
+  },
+  {
+    "id": "logic_004",
+    "type": "strategy",
+    "title": "Einstein's Five Houses Puzzle",
+    "question": "There are five houses in a row, each painted a different color. In each house lives a person of a different nationality. Each person drinks a different beverage, smokes a different brand, and keeps a different pet.\n\nClues:\n1. The British person lives in the red house.\n2. The Swedish person keeps dogs.\n3. The Danish person drinks tea.\n4. The green house is immediately to the left of the white house.\n5. The green house owner drinks coffee.\n6. The person who smokes Pall Mall keeps birds.\n7. The owner of the yellow house smokes Dunhill.\n8. The person in the middle house drinks milk.\n9. The Norwegian lives in the first house.\n10. The person who smokes Blends lives next to the one who keeps cats.\n11. The person who keeps horses lives next to the Dunhill smoker.\n12. The person who smokes BlueMaster drinks beer.\n13. The German smokes Prince.\n14. The Norwegian lives next to the blue house.\n15. The person who smokes Blends has a neighbor who drinks water.\n\nWho owns the fish?\n\nThis puzzle is attributed to Einstein and is the canonical constraint satisfaction puzzle, asked in Google PM interviews.",
+    "answer": "The German owns the fish. Full solution: House 1: Norwegian, Yellow, Water, Dunhill, Cats. House 2: Danish, Blue, Tea, Blends, Horses. House 3: British, Red, Milk, Pall Mall, Birds. House 4: German, Green, Coffee, Prince, Fish. House 5: Swedish, White, Beer, BlueMaster, Dogs.",
+    "acceptableRange": null,
+    "difficulty": 4,
+    "hints": [
+      "From clues 9 and 14: Norwegian is in house 1, next to the blue house, so house 2 is blue. From clue 8: house 3 person drinks milk. From clues 4 and 5: green is immediately left of white, and green owner drinks coffee. Combined with milk in house 3, the green-white pair must be houses 4-5.",
+      "From clue 7: yellow house owner smokes Dunhill. Houses 2=blue, 4=green, 5=white, so house 1 or 3 is yellow. House 3 drinks milk, not coffee, so house 3 is not green and must be red (from clue 1: British in red house). House 1 is yellow. Clue 7: house 1 owner smokes Dunhill. Clue 1: British in house 3.",
+      "From clue 11: horse owner is next to Dunhill smoker (house 1), so house 2 has horses. From clue 3: Danish drinks tea. House 2 is blue and has tea and horses. From remaining nationalities for house 2: Danish fits. Continue eliminating: German smokes Prince (clue 13), Prince smoker is in house 4 (only remaining), German is in house 4 with fish."
+    ],
+    "skills": ["constraint_satisfaction", "logic", "systematic_elimination", "deductive_reasoning"]
+  },
+  {
+    "id": "logic_005",
+    "type": "strategy",
+    "title": "Muddy Children — Iterated Announcement Logic",
+    "question": "A group of children come home from playing in the mud. Some have muddy foreheads. A child can see everyone else's forehead but cannot see their own. A perfectly honest and infallible parent walks in and says: At least one of you has a muddy forehead.\n\nThe parent then repeatedly asks: Does anyone now know whether their own forehead is dirty? Assume all children are perfect logicians who reason simultaneously and can hear all answers.\n\nPart 1: If exactly 1 child is muddy, what happens on the first round of questioning?\n\nPart 2: If exactly 2 children are muddy, what happens on the first round? The second round?\n\nPart 3: If exactly k children are muddy, on which round does each muddy child first know they are muddy?\n\nPart 4: Why is the parent's announcement necessary even though every child can already see that at least one other child is muddy? What new information does the announcement add?\n\nThis is a foundational example in epistemic logic and distributed systems, asked at Microsoft Research and DeepMind.",
+    "answer": "If k children are muddy, all k muddy children simultaneously raise their hands on round k, and none earlier. The announcement adds common knowledge — not just that someone is muddy, but that everyone knows that everyone knows (arbitrarily deep) that someone is muddy.",
+    "acceptableRange": null,
+    "difficulty": 5,
+    "hints": [
+      "Case k=1: The muddy child sees no other muddy children. After the parent's announcement (at least one is muddy), the lone muddy child immediately deduces it must be them. They know on round 1.",
+      "Case k=2: Each muddy child sees exactly 1 other muddy child. On round 1, neither raises their hand — each thinks it might be only the other one. But when no one raises a hand on round 1, each muddy child reasons: if I were not muddy, the other muddy child would have seen 0 muddy children and raised their hand on round 1. Since they did not, I must also be muddy. Both raise hands on round 2.",
+      "Why is the announcement necessary? With 2 muddy children: child A knows child B is muddy. Child B knows child A is muddy. But child A does not know whether child B knows that child A knows that child B is muddy. Without the public announcement, this chain of mutual knowledge is limited in depth. The announcement creates common knowledge — infinite-depth mutual awareness — enabling the inductive reasoning chain."
+    ],
+    "skills": ["epistemic_logic", "common_knowledge", "mathematical_induction", "distributed_systems"]
+  },
+  {
+    "id": "logic_006",
+    "type": "strategy",
+    "title": "The Unexpected Hanging Paradox",
+    "question": "A judge tells a condemned prisoner on Friday afternoon: You will be hanged at noon on one of the seven days of next week (Monday through Sunday). The hanging will be a surprise — you will not know the night before which day it is.\n\nThe prisoner reasons as follows:\n1. I cannot be hanged on Sunday, because if I reach Saturday night without being hanged, I will know Sunday is the day — eliminating the surprise. Sunday is ruled out.\n2. Given Sunday is ruled out, I cannot be hanged on Saturday — if I reach Friday night without being hanged, I would know Saturday is the day. Saturday ruled out.\n3. By the same inductive argument, Friday, Thursday, Wednesday, Tuesday, and Monday are all ruled out.\n4. Conclusion: the judge's decree is self-contradictory. I cannot be hanged.\n\nThe prisoner goes to sleep relieved. On Wednesday at noon, the executioner arrives — and the prisoner is genuinely surprised.\n\nWhere does the prisoner's reasoning go wrong?\n\nThis paradox appears in Oxford philosophy interviews and logic puzzle books.",
+    "answer": "The prisoner's error is using the judge's statement as a premise in a backward induction that undermines the very statement being used. The argument is self-defeating: it assumes the statement is true in order to prove it is false. The statement is in fact consistent — the surprise is possible on any day. The prisoner's proof incorrectly treats the statement as a logical impossibility when it is actually satisfiable.",
+    "acceptableRange": null,
+    "difficulty": 4,
+    "hints": [
+      "The prisoner assumes that if they can deduce the day in advance, the judge's statement is violated. The backward induction from Sunday is valid only if the prisoner knows the hanging will definitely occur. But if the prisoner believes the judge's statement is false (based on the induction), then the hanging CAN be a surprise on any day.",
+      "Key issue: the backward induction is self-undermining. The argument requires the judge's statement to be true as a premise (in order to rule out Sunday), but the conclusion is that the statement is false. This is circular reasoning — similar to the liar's paradox.",
+      "Resolution: the judge's statement is in fact satisfiable. The prisoner who has reasoned themselves into believing they cannot be hanged will be surprised on any day of execution. The flaw is in treating a self-referential statement as a simple logical premise amenable to backward induction."
+    ],
+    "skills": ["self_reference", "logic", "paradoxes", "epistemic_reasoning", "fixed_points"]
+  },
+  {
+    "id": "logic_007",
+    "type": "strategy",
+    "title": "Weighing Balls — Minimum Weighings for 27 Balls",
+    "question": "You have 27 balls that all look identical. Exactly one is heavier than the rest (the others all weigh the same). You have a balance scale.\n\nPart 1: What is the minimum number of weighings to guarantee finding the heavy ball among 27?\n\nPart 2: Describe the complete strategy for the 27-ball case.\n\nPart 3: Generalize: what is the maximum number of balls you can handle in exactly n weighings, if you know the anomalous ball is heavier?\n\nPart 4: If you do not know whether the anomalous ball is heavier or lighter (it could be either), what is the maximum number of balls you can handle in n weighings?\n\nCompare your answers for n=3: known direction vs unknown direction.",
+    "answer": "Part 1: 3 weighings. Part 2: Divide into 3 groups of 9. Weigh 9 vs 9. Identify the heavy group (or the unweighed group if balanced). Repeat for the 9-ball subgroup (3 vs 3), then for the 3-ball group (1 vs 1). Part 3: 3^n balls in n weighings. Part 4: (3^n - 3)/2 balls for unknown direction. For n=3: known direction handles 27 balls; unknown direction handles only 12.",
+    "acceptableRange": null,
+    "difficulty": 3,
+    "hints": [
+      "Each weighing has 3 outcomes (left heavy, right heavy, balanced). n weighings give 3^n possible outcome sequences. With known heavier ball: 3^n distinguishable cases means 3^n balls maximum.",
+      "Strategy for 27 balls: Round 1 — divide into groups of 9, 9, and 9. Weigh 9 vs 9. The heavy group is the heavier pan, or the unweighed group if balanced. Round 2: take the suspect 9, divide into 3, 3, 3 and repeat. Round 3: take suspect 3, weigh 1 vs 1 to identify the heavy one.",
+      "Unknown direction: for n=3, maximum is (3^3 - 3)/2 = (27-3)/2 = 12 balls. Each ball has 2 possible fault directions (heavier or lighter) giving 24 non-trivial cases, plus the possibility of all genuine. Three weighings yield 27 outcomes — barely sufficient. The classic 12-ball problem is the canonical example."
+    ],
+    "skills": ["information_theory", "logic", "decision_trees", "combinatorics"]
+  },
+  {
+    "id": "logic_008",
+    "type": "strategy",
+    "title": "The Collatz Conjecture — An Unsolved Problem",
+    "question": "Consider the following operation on positive integers:\n- If n is even, divide it by 2.\n- If n is odd, multiply it by 3 and add 1.\n\nStarting from any positive integer and repeatedly applying this operation generates a sequence. For example, starting from 6: 6 -> 3 -> 10 -> 5 -> 16 -> 8 -> 4 -> 2 -> 1.\n\nThe Collatz Conjecture (also called the 3n+1 conjecture) states: starting from any positive integer, this process will eventually reach 1.\n\nPart 1: Verify the conjecture for n = 27 by tracing the first 10 steps and describing what eventually happens.\n\nPart 2: Why is this problem deceptively difficult despite its simple statement? What makes it resistant to proof?\n\nPart 3: What is known about the problem? What computational evidence exists, and what partial results have been proven?\n\nPart 4: Design an efficient algorithm (with reasoning about time complexity) to check the Collatz conjecture for all integers up to N.\n\nThis problem is asked at Google and Microsoft interviews as a programming challenge and as a test of mathematical reasoning.",
+    "answer": "The sequence from 27 reaches its peak at 9232 before eventually falling to 1 after 111 steps. The conjecture is unproven but has been verified computationally for all integers up to approximately 2^68. The difficulty lies in the unpredictable mixing of multiplicative and additive operations across different scales.",
+    "acceptableRange": null,
+    "difficulty": 4,
+    "hints": [
+      "Starting from 27: 27 -> 82 -> 41 -> 124 -> 62 -> 31 -> 94 -> 47 -> 142 -> 71 -> 214 -> ... The sequence rises dramatically before eventually falling. 27 takes 111 steps to reach 1 and peaks at 9232.",
+      "The difficulty: the sequence mixes multiplicative dynamics (dividing by 2 reduces magnitude geometrically) with additive perturbations (3n+1 causes jumps). Standard number theory tools like prime factorization and modular arithmetic do not cleanly apply. The sequence behaves pseudo-randomly.",
+      "Known results: verified computationally for all n up to approximately 2.95 times 10^20 (Oliveira e Silva, 2011). Terence Tao proved in 2019 that almost all iterates of the Collatz map are arbitrarily close to 1 in a density sense — a major partial result. But a complete proof remains elusive."
+    ],
+    "skills": ["number_theory", "algorithm_design", "mathematical_reasoning", "recursion"]
+  }
+]
