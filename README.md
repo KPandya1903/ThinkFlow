@@ -1,4 +1,4 @@
-# ITHINK — Cognitive Training Platform
+# ThinkFlow — Cognitive Training Platform
 
 A competitive puzzle platform designed to sharpen analytical thinking through authentic, interview-grade challenges from Google, Jane Street, McKinsey, Two Sigma, Goldman Sachs, and more.
 
@@ -55,7 +55,7 @@ A competitive puzzle platform designed to sharpen analytical thinking through au
 ## Project Structure
 
 ```
-ITHINK/
+ThinkFlow/
 ├── app/                        # Next.js application
 │   ├── scripts/                # Database seeding scripts
 │   │   ├── seed-all.ts         # Seeds all puzzle types
@@ -120,8 +120,8 @@ ITHINK/
 ### Installation
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/ITHINK.git
-cd ITHINK/app
+git clone https://github.com/KPandya1903/ThinkFlow.git
+cd ThinkFlow/app
 npm install
 ```
 
